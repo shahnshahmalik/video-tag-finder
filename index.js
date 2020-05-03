@@ -1,24 +1,34 @@
 (() => {
-    const srcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
+    const videoSrcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
+    const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);
     console.log("(()=>{const s=document.createElement('script');s.setAttribute('src','https://rodmcnew.github.io/video-tag-source-finder/index.js');document.body.appendChild(s);})()");
-    console.log('videoTagSourceList', srcs);
+    console.log('videoTagSourceList', videoSrcs, iframeSrcs);
     const div = document.createElement('div');
     div.id = 'videoTagSourceList'
     div.style.backgroundColor = '#00FF00';
     div.style.color = 'black';
     div.style.padding = '1em';
-    div.style.position = 'absolute';
+    // div.style.position = 'absolute';
     div.style.zIndex = '999999999';
-    div.style.fontSize = '12pt';
-    div.innerHTML = srcs.length + ' video tag(s) found as of time ' + Date.now();
-    srcs.forEach((src) => {
-        var a = document.createElement('a');
-        a.href = src
-        a.target = '_blank'
-        a.innerHTML = src
-        div.append(document.createElement('br'));
-        div.append(a)
-    });
+    div.style.fontSize = '12pt'
+    const appendText = (text) => {
+        const appendDiv = document.createElement('div');
+        appendDiv.innerHTML = text;
+        div.append(appendDiv);
+    }
+    const appendLink = (href) => {
+        const appendA = document.createElement('a');
+        appendA.innerHTML = href;
+        appendA.href = href;
+        appendA.target = '_blank';
+        div.append(appendA);
+    }
+    
+    appendText('Time = ' + Date.now())
+    appendText(videoSrcs.length + ' video tags found with srcs:')
+    videoSrcs.forEach((src) => {appendLink(src)});
+    appendText(iframeSrcs.length + ' video tags found with srcs:')
+    iframeSrcs.forEach((src) => {appendLink(src)});
     [...document.querySelectorAll('#videoTagSourceList')].forEach((ele) => {
         ele.remove()
     });
