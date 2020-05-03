@@ -21,6 +21,7 @@
         appendA.innerHTML = href;
         appendA.href = href;
         appendA.target = '_blank';
+        div.append(document.createElement('hr'));
         div.append(appendA);
     }
     
