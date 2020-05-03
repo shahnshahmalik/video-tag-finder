@@ -35,5 +35,5 @@
             ele.remove()
         });
         document.body.prepend(div);
-    }, 200);
+    }, 1000);
 })();
