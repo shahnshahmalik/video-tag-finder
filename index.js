@@ -1,17 +1,20 @@
 (() => {
+    const div = document.createElement('div');
+    div.id = 'videoTagSourceList'
+    div.style.backgroundColor = '#00FF00';
+    div.style.color = 'black';
+    div.style.padding = '1em';
+    div.style.fontSize = '12pt'
+    div.style.zIndex = '2147483647';
+    div.style.position = 'absolute';
+    div.style.top = '0';
+    div.style.left = '0';
+    document.body.append(div);
+    
     setInterval(() => {
         const videoSrcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
-        const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);
-        console.log("(()=>{const s=document.createElement('script');s.setAttribute('src','https://rodmcnew.github.io/video-tag-source-finder/index.js');document.body.appendChild(s);})()");
-        console.log('videoTagSourceList', videoSrcs, iframeSrcs);
-        const div = document.createElement('div');
-        div.id = 'videoTagSourceList'
-        div.style.backgroundColor = '#00FF00';
-        div.style.color = 'black';
-        div.style.padding = '1em';
-        div.style.fontSize = '12pt'
-        div.style.zIndex = '999999999';
-        // div.style.position = 'absolute';
+        const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);        
+        div.innerHTML = '';
         const appendText = (text) => {
             const appendDiv = document.createElement('div');
             appendDiv.innerHTML = text;
@@ -30,10 +33,6 @@
         appendText(videoSrcs.length + ' videos found:')
         videoSrcs.forEach((src) => {appendLink(src)});
         appendText(iframeSrcs.length + ' iframes found:')
-        iframeSrcs.forEach((src) => {appendLink(src)});
-        [...document.querySelectorAll('#videoTagSourceList')].forEach((ele) => {
-            ele.remove()
-        });
-        document.body.prepend(div);
+        iframeSrcs.forEach((src) => {appendLink(iframeSrcs)});
     }, 1000);
 })();
