@@ -10,6 +10,7 @@
     div.style.top = '0';
     div.style.left = '0';
     div.style.overflow = 'hidden';
+    div.style.maxWidth = '100%'
     let big = true;
     const button = document.createElement('button');
     button.innerHTML = 'minimize/maximize';
@@ -37,12 +38,13 @@
         const appendLink = (href) => {
             const appendA = document.createElement('a');
             const maxTextLength = 100;
-            appendA.innerHTML = (href.length > maxTextLength) 
-                ? href.substr(0, maxTextLength-1) + '&hellip;' : href;
+            appendA.innerHTML = href;
             console.log(href, href.length, appendA.innerHTML);
             appendA.href = href;
             appendA.target = '_blank';
-            div.append(document.createElement('hr'));
+            appendA.style.whiteSpace = 'nowrap';
+            appendA.style.overflow = 'hidden';
+            div.append(document.createElement('br'));
             div.append(appendA);
         }
         
@@ -51,9 +53,9 @@
             + ' | ' + iframeSrcs.length + ' iframes found'
             + ' | Last updated ' + Date.now()
         )
-        appendText(videoSrcs.length + 'videos:');
+        appendText(videoSrcs.length + ' videos:');
         videoSrcs.forEach((src) => {appendLink(src)});
-        appendText(iframeSrcs.length + 'iframes:')
+        appendText(iframeSrcs.length + ' iframes:')
         iframeSrcs.forEach((src) => {appendLink(src)});
     }
 
