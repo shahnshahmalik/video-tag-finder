@@ -1,6 +1,10 @@
 (() => {
     const srcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
-    console.log('videoTagSourceList', srcs);
+    console.log(
+        'videoTagSourceList',
+        "(()=>{var s = document.createElement( 'script' );s.setAttribute( 'src', 'https://rodmcnew.github.io/video-tag-source-finder/index.js' );document.body.appendChild( s );})()",
+        srcs
+    );
     const div = document.createElement('div');
     div.id = 'videoTagSourceList'
     div.style.backgroundColor = '#00FF00';
