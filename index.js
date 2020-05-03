@@ -26,9 +26,9 @@
     }
     
     appendText('Last updated time: ' + Date.now())
-    appendText(videoSrcs.length + ' video tags found with srcs:')
+    appendText(videoSrcs.length + ' videos found:')
     videoSrcs.forEach((src) => {appendLink(src)});
-    appendText(iframeSrcs.length + ' iframe tags found with srcs:')
+    appendText(iframeSrcs.length + ' iframes found:')
     iframeSrcs.forEach((src) => {appendLink(src)});
     [...document.querySelectorAll('#videoTagSourceList')].forEach((ele) => {
         ele.remove()
