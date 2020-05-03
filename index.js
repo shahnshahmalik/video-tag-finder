@@ -14,7 +14,6 @@
     const button = document.createElement('button');
     button.innerHTML = 'X';
     button.style.float = 'right';
-    button.style.marginRight = '1em';
     button.addEventListener('click', (event) => {
         clearInterval(interval);
         div.remove();
@@ -50,11 +49,7 @@
 
         div.innerHTML = '';
         div.append(button);
-        appendText(
-            videoSrcs.length + ' videos found'
-            + ' | ' + iframeSrcs.length + ' iframes found'
-            + ' | Last updated at ' + Math.round(Date.now() / 1000)
-        )
+        appendText('Last updated at ' + Math.round(Date.now() / 1000))
         appendText(videoSrcs.length + ' videos:');
         videoSrcs.forEach((src) => {appendLink(src)});
         appendText(iframeSrcs.length + ' iframes:')
