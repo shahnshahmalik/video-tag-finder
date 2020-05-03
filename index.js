@@ -9,12 +9,21 @@
     div.style.position = 'absolute';
     div.style.top = '0';
     div.style.left = '0';
+    div.style.overflow = 'hidden';
     document.body.append(div);
+    let big = true;
+    const button = document.createElement('button');
+    button.innerHTML = 'minimize/maximize'
+    button.addEventListener('click', (event) => {
+        big = !big;
+        div.style.maxHeight = big ? 'none' : '3em';
+    });
     
-    setInterval(() => {
+    const render = () => {
         const videoSrcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
         const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);        
         div.innerHTML = '';
+        div.append(button);
         const appendText = (text) => {
             const appendDiv = document.createElement('div');
             appendDiv.innerHTML = text;
@@ -29,10 +38,17 @@
             div.append(appendA);
         }
         
-        appendText('Last updated time: ' + Date.now())
-        appendText(videoSrcs.length + ' videos found:')
+        appendText(
+            videoSrcs.length + ' videos found'
+            + ' | ' + iframeSrcs.length + ' iframes found'
+            + ' | Last updated ' + Date.now()
+        )
+        appendText('Videos:');
         videoSrcs.forEach((src) => {appendLink(src)});
-        appendText(iframeSrcs.length + ' iframes found:')
+        appendText('Iframes:')
         iframeSrcs.forEach((src) => {appendLink(iframeSrcs)});
-    }, 1000);
+    }
+
+    render();
+    setInterval(render, 1000);
 })();
