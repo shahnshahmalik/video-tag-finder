@@ -7,6 +7,8 @@
     div.style.backgroundColor = '#00FF00';
     div.style.color = 'black';
     div.style.padding = '1em';
+    div.style.position = 'absolute';
+    div.style.zIndex = '999999999';
     div.innerHTML = srcs.length + ' video tag(s) found as of time ' + Date.now();
     srcs.forEach((src) => {
         var a = document.createElement('a');
