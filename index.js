@@ -28,7 +28,7 @@
 
         const videoSrcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
         const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);
-        
+
         div.innerHTML = '';
         div.append(button);
         const appendText = (text) => {
@@ -43,7 +43,7 @@
             appendA.target = '_blank';
             appendA.style.whiteSpace = 'nowrap';
             appendA.style.overflow = 'hidden';
-            div.append(document.createElement('br'));
+            appendA.style.display = 'block';
             div.append(appendA);
         }
         
