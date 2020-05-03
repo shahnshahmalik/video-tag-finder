@@ -3,8 +3,8 @@
     console.log('videoTagSourceList', srcs);
     const div = document.createElement('div');
     div.id = 'videoTagSourceList'
-    div.style.backgroundColor = 'green';
-    div.style.color = 'white';
+    div.style.backgroundColor = '#00FF00';
+    div.style.color = 'black';
     div.style.padding = '1em';
     div.innerHTML = srcs.length + ' video tag(s) found as of time ' + Date.now();
     srcs.forEach((src) => {
