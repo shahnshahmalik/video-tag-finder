@@ -27,7 +27,8 @@
         document.documentElement.append(div);
 
         const videoSrcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
-        const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);        
+        const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);
+        
         div.innerHTML = '';
         div.append(button);
         const appendText = (text) => {
@@ -37,9 +38,7 @@
         }
         const appendLink = (href) => {
             const appendA = document.createElement('a');
-            const maxTextLength = 100;
             appendA.innerHTML = href;
-            console.log(href, href.length, appendA.innerHTML);
             appendA.href = href;
             appendA.target = '_blank';
             appendA.style.whiteSpace = 'nowrap';
