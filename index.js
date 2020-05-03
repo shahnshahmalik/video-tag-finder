@@ -1,6 +1,6 @@
 (() => {
     const div = document.createElement('div');
-    div.id = 'videoTagSourceList';
+    // div.id = 'videoTagSourceList';
     div.style.backgroundColor = '#00FF00';
     div.style.color = 'black';
     div.style.padding = '1em';
@@ -13,12 +13,12 @@
     div.style.maxWidth = '100%'
     let big = true;
     const button = document.createElement('button');
-    button.innerHTML = 'minimize/maximize';
-    button.style.float = 'left';
+    button.innerHTML = 'X';
+    button.style.float = 'right';
     button.style.marginRight = '1em';
     button.addEventListener('click', (event) => {
-        big = !big;
-        div.style.maxHeight = big ? 'none' : '1em';
+        clearInterval(interval);
+        div.remove();
     });
 
     const appendText = (text) => {
@@ -63,5 +63,5 @@
     }
 
     render();
-    setInterval(render, 1000);
+    const interval = setInterval(render, 1000);
 })();
