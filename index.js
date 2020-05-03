@@ -6,7 +6,7 @@
     div.style.backgroundColor = 'green';
     div.style.color = 'white';
     div.style.padding = '1em';
-    div.innerHTML = 'As of '+ Date.now() + ', ' + srcs.length + ' video tag(s) found:';
+    div.innerHTML = srcs.length + ' video tag(s) found as of time '+ Date.now();
     srcs.forEach((src) => {
         var a = document.createElement('a');
         a.href = src
