@@ -26,6 +26,7 @@
         appendDiv.innerHTML = text;
         div.append(appendDiv);
     }
+    
     const appendLink = (href) => {
         const appendA = document.createElement('a');
         appendA.innerHTML = href;
