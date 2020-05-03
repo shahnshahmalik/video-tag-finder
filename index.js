@@ -11,7 +11,6 @@
     div.style.left = '0';
     div.style.overflow = 'hidden';
     div.style.maxWidth = '100%'
-    let big = true;
     const button = document.createElement('button');
     button.innerHTML = 'X';
     button.style.float = 'right';
