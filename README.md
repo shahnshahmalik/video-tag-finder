@@ -1,4 +1,4 @@
-###This is a bookmarklet that pops up a list of links to the sources of every video tag on the current page.
+This is a bookmarklet that pops up a list of links to the sources of every video tag on the current page.
 
 To use this bookmarklet, just create a new bookmark in your browser and paste the following code into the bookmark "URL" field.
 ```js
