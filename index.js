@@ -5,7 +5,8 @@
     div.id = 'videoTagSourceList'
     div.style.backgroundColor = 'green';
     div.style.color = 'white';
-    div.innerHTML = 'as of '+ Date.now() + ', ' + srcs.length + ' video tag(s) found:';
+    div.style.padding = '1em';
+    div.innerHTML = 'As of '+ Date.now() + ', ' + srcs.length + ' video tag(s) found:';
     srcs.forEach((src) => {
         var a = document.createElement('a');
         a.href = src
