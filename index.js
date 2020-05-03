@@ -26,7 +26,7 @@
         appendDiv.innerHTML = text;
         div.append(appendDiv);
     }
-    
+
     const appendLink = (href) => {
         const appendA = document.createElement('a');
         appendA.innerHTML = href;
@@ -36,6 +36,9 @@
         appendA.style.overflow = 'hidden';
         appendA.style.display = 'block';
         div.append(appendA);
+        // const video = document.createElement('video');
+        // video.src = href;
+        // div.append(video);
     }
 
     const render = () => {
@@ -60,5 +63,5 @@
     }
 
     render();
-    setInterval(render, 1000);
+    // setInterval(render, 1000);
 })();
