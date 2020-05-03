@@ -8,9 +8,9 @@
     div.style.backgroundColor = '#00FF00';
     div.style.color = 'black';
     div.style.padding = '1em';
-    // div.style.position = 'absolute';
-    div.style.zIndex = '999999999';
     div.style.fontSize = '12pt'
+    div.style.zIndex = '999999999';
+    // div.style.position = 'absolute';
     const appendText = (text) => {
         const appendDiv = document.createElement('div');
         appendDiv.innerHTML = text;
