@@ -3,6 +3,5 @@ This is a bookmarklet that pops up a list of links to the sources of every video
 Bookmarklet code:
 
 ```js
-(()=>{var s = document.createElement( 'script' );s.setAttribute( 'src', 'https://rodmcnew.github.io/video-tag-source-finder/index.js' );document.body.appendChild( s );})()
-
+(()=>{const s=document.createElement('script');s.setAttribute('src','https://rodmcnew.github.io/video-tag-source-finder/index.js');document.body.appendChild(s);})()
 ```
