@@ -21,6 +21,22 @@
         div.style.maxHeight = big ? 'none' : '1em';
     });
 
+    const appendText = (text) => {
+        const appendDiv = document.createElement('div');
+        appendDiv.innerHTML = text;
+        div.append(appendDiv);
+    }
+    const appendLink = (href) => {
+        const appendA = document.createElement('a');
+        appendA.innerHTML = href;
+        appendA.href = href;
+        appendA.target = '_blank';
+        appendA.style.whiteSpace = 'nowrap';
+        appendA.style.overflow = 'hidden';
+        appendA.style.display = 'block';
+        div.append(appendA);
+    }
+
     const render = () => {
         //Remove and re-add each render to make sure we are last and we are very top z-index wise
         div.remove();
@@ -31,22 +47,6 @@
 
         div.innerHTML = '';
         div.append(button);
-        const appendText = (text) => {
-            const appendDiv = document.createElement('div');
-            appendDiv.innerHTML = text;
-            div.append(appendDiv);
-        }
-        const appendLink = (href) => {
-            const appendA = document.createElement('a');
-            appendA.innerHTML = href;
-            appendA.href = href;
-            appendA.target = '_blank';
-            appendA.style.whiteSpace = 'nowrap';
-            appendA.style.overflow = 'hidden';
-            appendA.style.display = 'block';
-            div.append(appendA);
-        }
-        
         appendText(
             videoSrcs.length + ' videos found'
             + ' | ' + iframeSrcs.length + ' iframes found'
