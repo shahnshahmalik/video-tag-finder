@@ -63,5 +63,5 @@
     }
 
     render();
-    // setInterval(render, 1000);
+    setInterval(render, 1000);
 })();
