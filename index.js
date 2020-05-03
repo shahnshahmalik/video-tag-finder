@@ -24,7 +24,7 @@
         div.append(appendA);
     }
     
-    appendText('Time = ' + Date.now())
+    appendText('Last updated time: ' + Date.now())
     appendText(videoSrcs.length + ' video tags found with srcs:')
     videoSrcs.forEach((src) => {appendLink(src)});
     appendText(iframeSrcs.length + ' video tags found with srcs:')
