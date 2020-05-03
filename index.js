@@ -1,6 +1,6 @@
 (() => {
     const div = document.createElement('div');
-    div.id = 'videoTagSourceList'
+    div.id = 'videoTagSourceList';
     div.style.backgroundColor = '#00FF00';
     div.style.color = 'black';
     div.style.padding = '1em';
@@ -50,7 +50,7 @@
         appendText(
             videoSrcs.length + ' videos found'
             + ' | ' + iframeSrcs.length + ' iframes found'
-            + ' | Last updated ' + Date.now()
+            + ' | Last updated at ' + Math.round(Date.now() / 1000)
         )
         appendText(videoSrcs.length + ' videos:');
         videoSrcs.forEach((src) => {appendLink(src)});
