@@ -10,16 +10,21 @@
     div.style.top = '0';
     div.style.left = '0';
     div.style.overflow = 'hidden';
-    document.body.append(div);
     let big = true;
     const button = document.createElement('button');
-    button.innerHTML = 'minimize/maximize'
+    button.innerHTML = 'minimize/maximize';
+    button.style.float = 'left';
+    button.style.marginRight = '1em';
     button.addEventListener('click', (event) => {
         big = !big;
-        div.style.maxHeight = big ? 'none' : '3em';
+        div.style.maxHeight = big ? 'none' : '1em';
     });
-    
+
     const render = () => {
+        //Remove and re-add each render to make sure we are last and we are very top z-index wise
+        div.remove();
+        document.documentElement.append(div);
+
         const videoSrcs = [...document.getElementsByTagName('video')].map((ele) => ele.src);
         const iframeSrcs = [...document.getElementsByTagName('iframe')].map((ele) => ele.src);        
         div.innerHTML = '';
@@ -31,7 +36,10 @@
         }
         const appendLink = (href) => {
             const appendA = document.createElement('a');
-            appendA.innerHTML = href;
+            const maxTextLength = 100;
+            appendA.innerHTML = (href.length > maxTextLength) 
+                ? href.substr(0, maxTextLength-1) + '&hellip;' : href;
+            console.log(href, href.length, appendA.innerHTML);
             appendA.href = href;
             appendA.target = '_blank';
             div.append(document.createElement('hr'));
@@ -43,10 +51,10 @@
             + ' | ' + iframeSrcs.length + ' iframes found'
             + ' | Last updated ' + Date.now()
         )
-        appendText('Videos:');
+        appendText(videoSrcs.length + 'videos:');
         videoSrcs.forEach((src) => {appendLink(src)});
-        appendText('Iframes:')
-        iframeSrcs.forEach((src) => {appendLink(iframeSrcs)});
+        appendText(iframeSrcs.length + 'iframes:')
+        iframeSrcs.forEach((src) => {appendLink(src)});
     }
 
     render();
